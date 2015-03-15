@@ -1,3 +1,4 @@
 .idea
 pkg/
-
+config.gcfg
+*.exe
