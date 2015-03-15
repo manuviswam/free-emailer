@@ -24,5 +24,5 @@ func main(){
 
 func sendMail(writer http.ResponseWriter, request *http.Request) {
 	err := sender.Send(request.PostFormValue("To"),request.PostFormValue("Subject"),request.PostFormValue("Content"))
-	fmt.Fprintf(writer, "error:%s\nTo:%s\nSub:%s",err,request.PostFormValue("To"),request.PostFormValue("Subject"))
+	fmt.Fprintf(writer, "{ error : %s }",err)
 }
