@@ -4,11 +4,13 @@ import (
 	"fmt"
 	"net/http"
 	"log"
+	"config"
 )
 
 func main(){
 	http.HandleFunc("/",Index)
-	log.Fatal(http.ListenAndServe(":8080",nil))
+	cfg,_ := config.LoadConfig("config.gcfg")
+	log.Fatal(http.ListenAndServe(cfg.Http.Port,nil))
 }
 
 func Index(writer http.ResponseWriter, request *http.Request){
